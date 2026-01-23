@@ -14,3 +14,4 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])
 // PATTERN: /recipes/id/slug
 // CTRL: RecipesController
 // ACTION: show
+Route::get('/monsters/{monster}/{slug}', [\App\Http\Controllers\MonsterController::class, 'show'])->name('monsters.show');
