@@ -2,17 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Route Par Défaut:
+// PATTERN: /
+// CTRL: PagesController
+// Action: Home
 
-Route::get('/', function () {
-    return view('pages.home', ['monsters' => \App\Monster::all()]);
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])
+->name('layouts.app');
+
+// ROUTE PAR DÉFAUT:
+// PATTERN: /recipes/id/slug
+// CTRL: RecipesController
+// ACTION: show
