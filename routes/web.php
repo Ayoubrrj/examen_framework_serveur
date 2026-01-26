@@ -40,14 +40,6 @@ Route::post('/monsters', [MonsterController::class, 'store'])->name('monsters.st
 
 
 
-// Route SHOW:
-
-// PATTERN: /monsters/{monster}/{slug}
-// CTRL: MonsterController
-// Action: show
-Route::get('/monsters/{monster}/{slug}', [MonsterController::class, 'show'])->name('monsters.show');
-
-
 // Route EDIT:
 
 // PATTERN: /monsters/{monster}/edit
@@ -59,6 +51,13 @@ Route::get('/monsters/{monster}/edit', [MonsterController::class, 'edit'])->name
 // CTRL: MonsterController
 // ACTION: update
 Route::put('/monsters/{monster}', [MonsterController::class, 'update'])->name('monsters.update');
+
+// Route SHOW:
+
+// PATTERN: /monsters/{monster}/{slug}
+// CTRL: MonsterController
+// Action: show
+Route::get('/monsters/{monster}/{slug}', [MonsterController::class, 'show'])->name('monsters.show');
 
 
 // Route DESTROY:

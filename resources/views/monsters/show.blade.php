@@ -43,7 +43,7 @@
                       {{ $monster->name }}
                     </h2>
                     <p class="text-gray-300 text-sm mb-4">
-                      {{ $monster->desciption }}
+                      {{ $monster->description }}
                     </p>
                     <!-- <div class="mb-4">
                       <strong class="text-white">Créateur:</strong>
@@ -78,7 +78,7 @@
                         >Ajouter à mon deck</a
                       > -->
                       <a
-                        href="monster.html"
+                        href="{{ route('monsters.edit', $monster->id) }}"
                         class="inline-block text-white bg-red-500 hover:bg-red-700 rounded-full px-4 py-2 transition-colors duration-300"
                         >Modifier</a
                       >

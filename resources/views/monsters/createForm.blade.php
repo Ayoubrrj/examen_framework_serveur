@@ -8,10 +8,8 @@
                 <h2 class="text-2xl font-bold mb-4 text-center creepster">
                     Ajouter un monstre
                 </h2>
-
-                {{-- L'action pointe vers la route store et on n'oublie pas enctype pour l'image plus tard --}}
                 <form action="{{ route('monsters.store') }}" method="POST" class="space-y-6">
-                    @csrf {{-- Protection Laravel obligatoire --}}
+                    @csrf 
 
                     <div>
                         <label for="name" class="block mb-1 text-gray-200">Nom</label>
@@ -62,13 +60,6 @@
                         <textarea id="description" name="description" rows="4"
                             class="w-full border rounded px-3 py-2 text-gray-900"
                             placeholder="Histoire du monstre..."></textarea>
-                    </div>
-
-                    <div>
-                        <label for="image_url" class="block mb-1 text-gray-200">Image (nom du fichier)</label>
-                        <input type="text" id="image_url" name="image_url"
-                            class="w-full border rounded px-3 py-2 text-gray-900"
-                            placeholder="monster.png" />
                     </div>
 
                     <div class="flex justify-between items-center pt-4">

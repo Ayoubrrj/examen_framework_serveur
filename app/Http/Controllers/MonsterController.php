@@ -57,7 +57,7 @@ class MonsterController extends Controller
 
         Monster::create($data);
 
-        return redirect('/');
+        return redirect('/posts');
     }
 
     /**
@@ -104,7 +104,7 @@ class MonsterController extends Controller
         $data['slug'] = Str::slug($request->name);
         $monster->update($data);
 
-        return redirect()->route('home')->with('success', 'Monstre mis à jour !');
+        return redirect('/');
     }
 
     /**
@@ -113,6 +113,6 @@ class MonsterController extends Controller
     public function destroy(Monster $monster)
     {
         $monster->delete();
-        return redirect()->route('home')->with('success', 'Monstre supprimé.');
+        return redirect('/');
     }
 }
