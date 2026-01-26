@@ -22,9 +22,7 @@ class MonsterController extends Controller
         ];
     }
 
-    /**
-     * Affiche le formulaire de création
-     */
+     // Affiche la view createForm
     public function create()
     {
         $types = Type::all();
@@ -36,13 +34,12 @@ class MonsterController extends Controller
         ));
     }
 
-    /**
-     * Enregistre le monstre en base de données
-     */
+
+    // Enregistre le monstre en base de données
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'        => 'required|string|max:255',
+            'name'        => 'required|string',
             'pv'          => 'required|integer', 
             'attack'      => 'required|integer',
             'defense'     => 'required|integer',
@@ -51,18 +48,17 @@ class MonsterController extends Controller
             'description' => 'required|string',
         ]);
 
-        // Ajout des champs obligatoires non présents dans le formulaire
+        // Ajout des champs obligatoires non présents dans le formulaire pour remplir la DB
         $data['rarity']  = 'Commun'; 
         $data['user_id'] = 1; 
 
         Monster::create($data);
 
-        return redirect('/posts');
+        return redirect('/');
     }
 
-    /**
-     * Affiche la page de détail d'un monstre
-     */
+
+    // Affiche la page de détail d'un monstre
     public function show(Monster $monster)
     {
         return view('monsters.show', array_merge(
@@ -71,9 +67,7 @@ class MonsterController extends Controller
         ));
     }
 
-    /**
-     * Affiche le formulaire d'édition
-     */
+    // Affiche le formulaire d'édition
     public function edit(Monster $monster)
     {
         $types = Type::all();
@@ -85,31 +79,25 @@ class MonsterController extends Controller
         ));
     }
 
-    /**
-     * Met à jour un monstre existant
-     */
+    // Met à jour un monstre existant
     public function update(Request $request, Monster $monster)
     {
         $data = $request->validate([
-            'name'        => 'required|string|max:255',
+            'name'        => 'required|string',
             'pv'          => 'required|integer', 
             'attack'      => 'required|integer',
             'defense'     => 'required|integer',
             'type_id'     => 'required|exists:monster_types,id',
             'rarety_id'   => 'required|exists:rareties,id',
             'description' => 'required|string',
-            'image_url'   => 'nullable|string',
         ]);
 
-        $data['slug'] = Str::slug($request->name);
         $monster->update($data);
 
         return redirect('/');
     }
 
-    /**
-     * Supprime un monstre
-     */
+    // Supprime un monstre
     public function destroy(Monster $monster)
     {
         $monster->delete();

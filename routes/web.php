@@ -54,10 +54,10 @@ Route::put('/monsters/{monster}', [MonsterController::class, 'update'])->name('m
 
 // Route SHOW:
 
-// PATTERN: /monsters/{monster}/{slug}
+// PATTERN: /monsters/{monster}
 // CTRL: MonsterController
 // Action: show
-Route::get('/monsters/{monster}/{slug}', [MonsterController::class, 'show'])->name('monsters.show');
+Route::get('/monsters/{monster}', [MonsterController::class, 'show'])->name('monsters.show');
 
 
 // Route DESTROY:
