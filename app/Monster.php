@@ -20,4 +20,16 @@ class Monster extends Model
     {
         return \Illuminate\Support\Str::limit($this->description, $length);
     }
+    protected $fillable = [
+        'name',
+        'pv',
+        'attack',
+        'defense', 
+        'type_id',
+        'rarety_id', 
+        'description', 
+        'rarity', 
+        'user_id', 
+        'image_url'
+    ];
 }

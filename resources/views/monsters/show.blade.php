@@ -11,7 +11,7 @@
             <section class="mb-20">
               <div
                 class="bg-gray-700 rounded-lg shadow-lg monster-card"
-                data-monster-type="{{ $monster->name }}"
+                data-monster-type="{{ $monster->type->name }}"
               >
                 <div class="md:flex">
                   <!-- Image du monstre -->
